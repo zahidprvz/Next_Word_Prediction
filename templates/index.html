@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Next Word Prediction</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Helvetica Neue', sans-serif;
+            background-color: #F2F2F2;
+            color: #333;
+        }
+        
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            color: #1F4068;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 30px;
+        }
+        
+        /* Form styles */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #FFF;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.3);
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #1F4068;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 5px;
+            border: none;
+            margin-bottom: 20px;
+            font-size: 18px;
+            box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        input[type="submit"] {
+            background-color: #F2C94C;
+            color: #1F4068;
+            padding: 15px 25px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        
+        input[type="submit"]:hover {
+            background-color: #F29F05;
+        }
+        
+        /* Result styles */
+        p {
+            margin-top: 30px;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            color: #1F4068;
+        }
+        
+        /* Media queries */
+        @media screen and (max-width: 768px) {
+            h1 {
+                font-size: 30px;
+                margin-top: 30px;
+                margin-bottom: 20px;
+            }
+            
+            label {
+                font-size: 16px;
+            }
+            
+            input[type="text"] {
+                font-size: 16px;
+                padding: 10px;
+            }
+            
+            input[type="submit"] {
+                font-size: 16px;
+                padding: 10px 20px;
+            }
+            
+            p {
+                font-size: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Next Word Prediction</h1>
+    <form action="/predict" method="post">
+        <label for="input_text">Enter your input text:</label>
+        <input type="text" id="input_text" name="input_text"><br><br>
+        <input type="submit" value="Predict">
+    </form>
+    {% if prediction %}
+    <p>Prediction: {{ prediction }}</p>
+    {% endif %}
+</body>
+</html>
